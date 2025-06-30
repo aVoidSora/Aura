@@ -14,7 +14,7 @@ public class ModComponents {
     public static final ResourceLocation AURA_ID = Aura.id("aura");
 
     public static final EntityCapability<AuraComponent, Void> AURA =
-            EntityCapability.create(AURA_ID);
+            EntityCapability.create(AURA_ID, AuraComponent.class, Void.class); // ✅ FIXED
 
     public static void registerCapabilities(RegisterCapabilitiesEvent event) {
         event.registerEntity(AURA, EntityType.PLAYER, (player, ctx) -> new AuraComponent(100));
