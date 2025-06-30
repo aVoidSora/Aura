@@ -1,4 +1,4 @@
-package com.avoidsora.manascension;
+package com.avoidsora.aura;
 
 import java.util.List;
 

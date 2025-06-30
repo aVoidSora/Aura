@@ -1,4 +1,4 @@
-package com.avoidsora.manascension;
+package com.avoidsora.aura;
 
 import org.slf4j.Logger;
 
@@ -35,11 +35,11 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
-@Mod(Manascension.MODID)
-public class Manascension
+@Mod(Aura.MODID)
+public class Aura
 {
     // Define mod id in a common place for everything to reference
-    public static final String MODID = "manascension";
+    public static final String MODID = "aura";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
     // Create a Deferred Register to hold Blocks which will all be registered under the "examplemod" namespace
@@ -66,13 +66,16 @@ public class Manascension
             .displayItems((parameters, output) -> {
                 output.accept(EXAMPLE_ITEM.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
             }).build());
-
+    public static ResourceLocation id(String path) {
+        return ResourceLocation.fromNamespaceAndPath(MODID, path);
+    }
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
-    public Manascension(IEventBus modEventBus, ModContainer modContainer)
+    public Aura(IEventBus modEventBus, ModContainer modContainer)
     {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(ModComponents::registerCapabilities);
 
         // Register the Deferred Register to the mod event bus so blocks get registered
         BLOCKS.register(modEventBus);
