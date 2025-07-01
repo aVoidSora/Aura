@@ -1,5 +1,6 @@
 package com.avoidsora.aura;
 
+import com.avoidsora.aura.command.AuraCommand;
 import com.avoidsora.aura.init.ModComponents;
 import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
